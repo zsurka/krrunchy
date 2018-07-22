@@ -2,7 +2,7 @@ package com.krrunchy.app.menu.model;
 
 public class Menu {
 	String[] items;
-
+	
 	public String[] getItems() {
 		return items;
 	}
