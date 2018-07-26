@@ -24,7 +24,9 @@ public class MenuRepository {
 	}
 	
 	public List<MenuDate> findAll() {
-		String query = "select * from menu_schedule ";
+		String query = "select  delivery_date,  items\r\n" + 
+				"	from menu_details, menu_schedule\r\n" + 
+				"	where menu_details.menu_id=menu_schedule.menu_id";
 		List<MenuDate> query2 = jdbcTemplate.query(query,new MenuRowMapper());
 		return query2 ;
 	}
@@ -41,7 +43,7 @@ public class MenuRepository {
 		public MenuDate mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MenuDate md = new MenuDate();
 			md.setDate(rs.getString("delivery_date"));
-			md.setMenuId(rs.getInt("menu_id"));
+			md.setItems(rs.getString("items"));
 			return md;
 		}
 		

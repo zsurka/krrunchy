@@ -1,5 +1,5 @@
 
-export class Menu{
-    menuId: String;
+export class Menu {
+    items: String;
     date: Date;
 }

@@ -9,7 +9,7 @@ import { Menu } from './Menu';
   providers: [KrrunchyBackendService]
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = 'Krrunchy';
   menus: Menu[] = [];
   private backendService: KrrunchyBackendService;
 
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     .subscribe(
       (menus) => {
         this.menus = menus;
+        console.log(this.menus);
       }
     );
   }
