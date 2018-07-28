@@ -1,10 +1,11 @@
 package com.krrunchy.app.menu.model;
 
 import java.text.MessageFormat;
+import java.util.List;
 
-public class MenuDate {
+public class MenuSchedule {
 	private String date;
-	private String items;
+	private List<String> items;
 	
 	public String getDate() {
 		return date;
@@ -13,14 +14,14 @@ public class MenuDate {
 		this.date = date;
 	}
 	
-	public String getItems() {
+	public List<String> getItems() {
 		return items;
 	}
-	public void setItems(String items) {
+	public void setItems(List<String> items) {
 		this.items = items;
 	}
 	@Override
 	public String toString() {
-		return MessageFormat.format("{0},{1}", items, date);
+		return MessageFormat.format("{0},{1}", date , items);
 	}
 }

@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.krrunchy.app.menu.model.MenuDate;
+import com.krrunchy.app.menu.model.MenuSchedule;
 
 @Controller
 @RequestMapping("/menus")
 @CrossOrigin
 public class MenuController {
-	private static final String DD_MM_YYYY = "dd/MM/yyyy";
 	private MenuRepository repo;
 	
 	@Autowired
@@ -30,19 +29,19 @@ public class MenuController {
 	
 	@RequestMapping(value="/all",method=RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public List<MenuDate> findAllMenus(){
-		List<MenuDate> findAll = repo.findAll();
+	public List<MenuSchedule> findAllMenus(){
+		List<MenuSchedule> findAll = repo.findAll();
 		return findAll;	
 	}
 
 	@RequestMapping(method=RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	private List<MenuDate> getMenusFor(@RequestParam("date") String date) {
-		SimpleDateFormat formatter = new SimpleDateFormat(DD_MM_YYYY);
+	private List<MenuSchedule> getMenusFor(@RequestParam("date") String dateString) {
+		SimpleDateFormat formatter = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
 		try {
-			//Expected date example -"21/7/2018"`
-			MenuDate menuDate = repo.findForDate(formatter.parse(date));
-			ArrayList<MenuDate> list = new ArrayList<MenuDate>();
+			//Expected date example -"21/7/2018"
+			MenuSchedule menuDate = repo.findForDate(formatter.parse(dateString));
+			ArrayList<MenuSchedule> list = new ArrayList<MenuSchedule>();
 			list.add(menuDate);
 			return list;
 		} catch (ParseException e) {
