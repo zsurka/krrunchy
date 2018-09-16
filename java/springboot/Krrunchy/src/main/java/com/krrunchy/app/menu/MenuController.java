@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,16 +39,27 @@ public class MenuController {
 	@RequestMapping(method=RequestMethod.GET,produces = "application/json")
 	@ResponseBody
 	private List<MenuSchedule> getMenusFor(@RequestParam("date") String dateString) {
-		SimpleDateFormat formatter = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
+		Optional<Date> dateObj = parseDate(dateString);
+		if(!dateObj.isPresent()) {
+			return Collections.emptyList();
+		}
+		
+		//Expected date example -"21/7/2018"
+		MenuSchedule menuDate = repo.findForDate(dateObj.get());
+		ArrayList<MenuSchedule> list = new ArrayList<MenuSchedule>();
+		list.add(menuDate);
+		return list;
+	}
+
+	private Optional<Date> parseDate(String dateString) {
+		Date dateObj;
 		try {
-			//Expected date example -"21/7/2018"
-			MenuSchedule menuDate = repo.findForDate(formatter.parse(dateString));
-			ArrayList<MenuSchedule> list = new ArrayList<MenuSchedule>();
-			list.add(menuDate);
-			return list;
+			SimpleDateFormat formatter = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
+			dateObj = formatter.parse(dateString);	
+			return Optional.of(dateObj);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return Collections.emptyList();
+		return Optional.empty();
 	}
 }
