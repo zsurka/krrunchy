@@ -1,2 +1,2 @@
 # krrunchy
-New Project for tiffin app
+Food deliery app for the community
