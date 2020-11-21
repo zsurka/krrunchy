@@ -1,2 +1,2 @@
 # krrunchy
-Food deliery app for the community
+Food delivery app for my local community
