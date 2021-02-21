@@ -1,4 +1,4 @@
-package com.krrunchy.app.menu.model;
+package com.krrunchy.menu.service.model;
 
 public class Menu {
 	String[] items;

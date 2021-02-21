@@ -1,11 +1,13 @@
-package com.krrunchy.app.config;
+package com.krrunchy.menu.service.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class DefaultConfig implements WebMvcConfigurer {
+@EnableWebMvc
+public class MenuServiceConfig implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		WebMvcConfigurer.super.addCorsMappings(registry);

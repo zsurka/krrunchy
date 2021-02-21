@@ -45,6 +45,3 @@ INSERT INTO `menu_details` (`menu_id`, `menu_item_id`) VALUES (2, 2);
 INSERT INTO `menu_details` (`menu_id`, `menu_item_id`) VALUES (2, 11);
 INSERT INTO `menu_details` (`menu_id`, `menu_item_id`) VALUES (2, 21);
 
-INSERT INTO `menu_schedule` (`menu_id`, `delivery_date`) VALUES (1, '2018-7-21');
-INSERT INTO `menu_schedule` (`menu_id`, `delivery_date`) VALUES (2, '2018-7-22');
-

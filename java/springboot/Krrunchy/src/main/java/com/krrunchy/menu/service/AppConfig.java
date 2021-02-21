@@ -1,12 +1,10 @@
-package com.krrunchy.app;
+package com.krrunchy.menu.service;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@EnableWebMvc
 @Configuration
-@ComponentScan(basePackages ="com.krrunchy")
+@ComponentScan(basePackages ="com.krrunchy.menu.service")
 public class AppConfig {
 
 }

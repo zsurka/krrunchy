@@ -9,5 +9,4 @@ public class KrrunchyApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }

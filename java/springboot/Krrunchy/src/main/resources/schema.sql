@@ -13,7 +13,3 @@
   menu_id INT NOT NULL,
   menu_item_id INT NOT NULL 
  );
- CREATE TABLE menu_schedule (
-  delivery_date DATE NOT NULL,
-  menu_id INT NOT NULL 
- );
